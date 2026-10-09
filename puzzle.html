@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧩 Ёлка-пазл</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="puzzle-page">
+
+  <div class="bg bg-dark"></div>
+  <div class="snow-container" id="snow"></div>
+
+  <a href="index.html" class="back-btn">← Назад</a>
+
+  <div class="puzzle-wrap">
+    <h1>🧩 Собери ёлку</h1>
+    <p class="puzzle-sub">Перетащи части на свои места</p>
+
+    <div class="puzzle-board" id="puzzleBoard">
+      <!-- Слоты для частей -->
+      <div class="slot" data-slot="top" style="top: 30px; left: 50%; transform: translateX(-50%);"></div>
+      <div class="slot" data-slot="mid" style="top: 120px; left: 50%; transform: translateX(-50%);"></div>
+      <div class="slot" data-slot="bot" style="top: 210px; left: 50%; transform: translateX(-50%);"></div>
+      <div class="slot" data-slot="trunk" style="top: 300px; left: 50%; transform: translateX(-50%);"></div>
+      <div class="slot" data-slot="star" style="top: 0px; left: 50%; transform: translateX(-50%);"></div>
+    </div>
+
+    <div class="puzzle-parts" id="puzzleParts">
+      <div class="part" draggable="true" data-part="top">
+        <svg viewBox="0 0 100 80" width="80" height="64">
+          <polygon points="50,5 95,75 5,75" fill="#0d7a0d" stroke="#d4af37" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="part" draggable="true" data-part="mid">
+        <svg viewBox="0 0 120 90" width="96" height="72">
+          <polygon points="60,5 115,85 5,85" fill="#0a5f0a" stroke="#d4af37" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="part" draggable="true" data-part="bot">
+        <svg viewBox="0 0 140 100" width="112" height="80">
+          <polygon points="70,5 135,95 5,95" fill="#084a08" stroke="#d4af37" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="part" draggable="true" data-part="trunk">
+        <svg viewBox="0 0 40 50" width="32" height="40">
+          <rect x="10" y="0" width="20" height="50" fill="#5c3a1a" stroke="#d4af37" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="part" draggable="true" data-part="star">
+        <svg viewBox="0 0 60 60" width="48" height="48">
+          <polygon points="30,5 37,23 56,23 41,35 47,54 30,42 13,54 19,35 4,23 23,23"
+                   fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="puzzle-done" id="puzzleDone" style="display:none;">
+      🎉 Ёлка собрана! 🎉
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script src="js/snow.js"></script>
+  <script src="js/puzzle.js"></script>
+</body>
+</html>
