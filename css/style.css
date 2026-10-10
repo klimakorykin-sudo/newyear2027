@@ -606,4 +606,204 @@ body {
   width: 150px;
   filter: drop-shadow(0 0 20px rgba(255,215,0,0.5));
   transform: scaleX(1);
+}.room-page .room-wrap {
+  position: relative;
+  z-index: 10;
+  max-width: 850px;
+  margin: 80px auto 40px;
+  padding: 20px;
+  text-align: center;
+}
+.room-page h1 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+.room-sub {
+  color: #aaa;
+  margin-bottom: 20px;
+}
+.room-svg-wrap {
+  background: rgba(10,10,30,0.5);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 0 40px rgba(212,175,55,0.2);
+}
+.room-svg {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+}
+/* МОДАЛЬНОЕ ОКНО ПОДАРКА */
+.room-page .modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.room-page .modal.show {
+  display: flex;
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.room-page .modal-content {
+  background: linear-gradient(135deg, rgba(20,20,50,0.95), rgba(10,10,30,0.95));
+  border: 2px solid rgba(212,175,55,0.5);
+  border-radius: 20px;
+  padding: 35px 30px;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 0 60px rgba(212,175,55,0.3);
+  animation: popIn 0.4s;
+}
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.room-page .modal-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #888;
+}
+.room-page .modal-close:hover { color: #d4af37; }
+.room-page .modal-emoji {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.room-page .modal-text {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f0e6d2;
+}
+
+/* АДАПТАЦИЯ — ПЛАНШЕТ */
+@media (max-width: 900px) {
+  .room-wrap {
+    padding: 10px;
+    margin-top: 70px;
+  }
+  .room-page h1 { font-size: 1.4rem; }
+  .room-page .room-svg-wrap { padding: 8px; }
+}
+
+/* АДАПТАЦИЯ — ТЕЛЕФОН */
+@media (max-width: 600px) {
+  .room-wrap {
+    padding: 8px;
+    margin-top: 65px;
+  }
+  .room-page h1 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  .room-sub { font-size: 0.85rem; margin-bottom: 10px; }
+  .room-svg-wrap { padding: 5px; border-radius: 12px; }
+
+  .back-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    top: 10px; left: 10px;
+  }
+}
+
+/* АДАПТАЦИЯ — ГЛАВНАЯ */
+@media (max-width: 600px) {
+  .countdown {
+    gap: 8px;
+    padding: 20px 10px 10px;
+  }
+  .countdown-item {
+    padding: 10px 12px;
+    min-width: 60px;
+  }
+  .countdown-number { font-size: 1.4rem; }
+  .countdown-label { font-size: 0.7rem; }
+
+  .menu-buttons {
+    gap: 10px;
+    margin-top: 25px;
+    padding: 0 15px;
+  }
+  .menu-buttons button {
+    padding: 13px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* АДАПТАЦИЯ — ПЛЕЕР */
+@media (max-width: 600px) {
+  .player-wrap {
+    padding: 20px 15px;
+    margin: 70px 10px 30px;
+  }
+  .player-page h1 { font-size: 1.2rem; }
+  .dancing-cat { width: 140px; height: 140px; }
+  .track-title { font-size: 1rem; }
+  .track-artist { font-size: 0.8rem; }
+  .playlist-item {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+  .volume-control input { width: 110px; }
+}
+
+/* АДАПТАЦИЯ — ПАЗЛ */
+@media (max-width: 600px) {
+  .puzzle-page .puzzle-wrap {
+    padding: 15px 10px;
+    margin-top: 70px;
+  }
+  .puzzle-page h1 { font-size: 1.2rem; }
+  .puzzle-page .puzzle-board {
+    width: 260px;
+    height: 290px;
+  }
+  .puzzle-parts {
+    gap: 10px;
+    padding: 12px;
+  }
+  .part svg { width: 60px !important; height: 45px !important; }
+}
+
+/* АДАПТАЦИЯ — СНЕЖНЫЙ ШАР */
+@media (max-width: 600px) {
+  .globe-page .globe-wrap {
+    padding: 70px 10px 20px;
+  }
+  .globe-page h1 { font-size: 1.2rem; }
+  .globe-page .globe {
+    width: 300px;
+    height: 375px;
+  }
+}
+
+/* АДАПТАЦИЯ — МОДАЛЬНЫЕ ОКНА */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 25px 18px;
+    border-radius: 15px;
+  }
+  .modal-content h2 { font-size: 1.2rem; }
+  .modal-text { font-size: 0.95rem; }
+  .term {
+    padding: 11px 12px;
+    font-size: 0.85rem;
+  }
+  .check { width: 20px; height: 20px; }
+  .accept-btn { font-size: 0.95rem; padding: 13px; }
+  .modal-emoji { font-size: 3rem; }
 }
