@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -19,40 +19,67 @@
     <div class="globe" id="globe">
       <svg class="globe-svg" viewBox="0 0 400 500">
         <!-- Подставка -->
-        <ellipse cx="200" cy="440" rx="130" ry="20" fill="#3a2a1a"/>
-        <path d="M 100 420 Q 100 450 200 450 Q 300 450 300 420 L 280 420 Q 280 435 200 435 Q 120 435 120 420 Z" fill="#5c3a1a"/>
-        <rect x="120" y="400" width="160" height="25" fill="#5c3a1a" stroke="#d4af37" stroke-width="2"/>
+        <ellipse cx="200" cy="450" rx="140" ry="25" fill="#2a1a0a"/>
+        <path d="M 80 420 Q 80 455 200 455 Q 320 455 320 420 L 295 420 Q 295 440 200 440 Q 105 440 105 420 Z" fill="#5c3a1a"/>
+        <ellipse cx="200" cy="420" rx="110" ry="18" fill="#7a4a2a"/>
+        <ellipse cx="200" cy="418" rx="100" ry="12" fill="#8a5a3a" opacity="0.6"/>
 
         <!-- Стеклянный шар -->
-        <circle cx="200" cy="230" r="170" fill="url(#globeGradient)" stroke="#d4af37" stroke-width="3"/>
+        <circle cx="200" cy="230" r="180" fill="url(#globeGradient)" stroke="#d4af37" stroke-width="3"/>
+        <circle cx="200" cy="230" r="175" fill="url(#innerGlow)" opacity="0.5"/>
 
-        <!-- Внутренний фон -->
-        <circle cx="200" cy="230" r="165" fill="#0a1a3a" opacity="0.6"/>
+        <!-- Земля внутри -->
+        <ellipse cx="200" cy="380" rx="150" ry="30" fill="#e8f0f8"/>
+        <ellipse cx="200" cy="375" rx="140" ry="22" fill="#fff"/>
 
-        <!-- Ёлка -->
-        <polygon points="200,150 240,220 160,220" fill="#0d7a0d"/>
-        <polygon points="200,190 250,260 150,260" fill="#0a5f0a"/>
-        <polygon points="200,230 260,310 140,310" fill="#084a08"/>
-        <rect x="192" y="310" width="16" height="25" fill="#5c3a1a"/>
-        <polygon points="200,130 208,148 192,148" fill="#d4af37"/>
+        <!-- ЁЛКА -->
+        <rect x="192" y="330" width="16" height="30" fill="#4a2a0a"/>
+        <path d="M 200 220 L 270 330 L 130 330 Z" fill="#0a5f0a"/>
+        <path d="M 200 220 L 270 330 L 200 330 Z" fill="#0d7a0d" opacity="0.5"/>
+        <path d="M 200 180 L 250 270 L 150 270 Z" fill="#0d7a0d"/>
+        <path d="M 200 180 L 250 270 L 200 270 Z" fill="#10a010" opacity="0.5"/>
+        <path d="M 200 145 L 230 220 L 170 220 Z" fill="#10a010"/>
+        <path d="M 200 145 L 230 220 L 200 220 Z" fill="#15c015" opacity="0.5"/>
+        <polygon points="200,120 208,140 228,140 212,152 218,172 200,160 182,172 188,152 172,140 192,140"
+                 fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
+        <circle cx="180" cy="290" r="6" fill="#ff3333"/>
+        <circle cx="220" cy="300" r="5" fill="#ffd700"/>
+        <circle cx="200" cy="250" r="5" fill="#3333ff"/>
+        <circle cx="185" cy="200" r="4" fill="#ff3333"/>
+        <circle cx="215" cy="210" r="4" fill="#ffd700"/>
 
-        <!-- Домик -->
-        <rect x="120" y="330" width="50" height="40" fill="#8b3a3a"/>
-        <polygon points="145,310 95,330 195,330" fill="#a02020"/>
-        <rect x="140" y="350" width="12" height="20" fill="#d4af37"/>
+        <!-- ДОМИК -->
+        <rect x="90" y="330" width="60" height="50" fill="#8b3a3a"/>
+        <rect x="90" y="330" width="60" height="50" fill="#a04545" opacity="0.5"/>
+        <polygon points="85,330 120,295 155,330" fill="#c02020"/>
+        <polygon points="120,295 155,330 120,330" fill="#a01818" opacity="0.5"/>
+        <rect x="135" y="300" width="10" height="20" fill="#5a2a2a"/>
+        <rect x="110" y="350" width="14" height="14" fill="#ffd700"/>
+        <rect x="110" y="350" width="14" height="14" fill="none" stroke="#4a2a0a" stroke-width="1"/>
+        <rect x="130" y="355" width="12" height="25" fill="#4a2a0a"/>
 
-        <!-- Снеговик -->
-        <circle cx="280" cy="360" r="14" fill="#fff"/>
-        <circle cx="280" cy="340" r="11" fill="#fff"/>
-        <circle cx="280" cy="325" r="8" fill="#fff"/>
+        <!-- СНЕГОВИК -->
+        <circle cx="290" cy="370" r="16" fill="#fff"/>
+        <circle cx="290" cy="345" r="12" fill="#fff"/>
+        <circle cx="290" cy="326" r="9" fill="#fff"/>
+        <circle cx="287" cy="324" r="1.5" fill="#000"/>
+        <circle cx="293" cy="324" r="1.5" fill="#000"/>
+        <polygon points="290,327 297,329 290,331" fill="#ff6600"/>
+        <rect x="280" y="333" width="20" height="4" fill="#cc0000" rx="1"/>
+        <line x1="278" y1="345" x2="260" y2="335" stroke="#5c3a1a" stroke-width="2.5"/>
+        <line x1="302" y1="345" x2="320" y2="335" stroke="#5c3a1a" stroke-width="2.5"/>
 
-        <!-- Блик -->
-        <ellipse cx="140" cy="140" rx="40" ry="60" fill="#fff" opacity="0.15"/>
+        <!-- БЛИК -->
+        <ellipse cx="130" cy="130" rx="45" ry="70" fill="#fff" opacity="0.12"/>
 
         <defs>
           <radialGradient id="globeGradient" cx="40%" cy="30%">
-            <stop offset="0%" stop-color="#4a6fa5" stop-opacity="0.2"/>
-            <stop offset="100%" stop-color="#0a1a3a" stop-opacity="0.4"/>
+            <stop offset="0%" stop-color="#6a8fc5" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#0a1a3a" stop-opacity="0.35"/>
+          </radialGradient>
+          <radialGradient id="innerGlow" cx="50%" cy="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
           </radialGradient>
         </defs>
       </svg>
