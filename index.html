@@ -39,6 +39,7 @@
     <button onclick="window.location.href='snowglobe.html'">🔮 Снежный шар</button>
     <button onclick="window.location.href='room.html'">🏠 Новогодняя комната</button>
     <button onclick="window.location.href='photo.html'">📸 Новогодняя фотозона</button>
+    <button id="secretBtn" onclick="window.location.href='secret.html'" style="display:none;">🎁 Секретный подарок</button>
   </div>
 
   <!-- СОГЛАШЕНИЕ -->
@@ -76,6 +77,7 @@
   <script src="js/countdown.js"></script>
   <script src="js/santa.js"></script>
   <script>
+    // СОГЛАШЕНИЕ
     let accepted = 0;
     const total = 4;
 
@@ -106,6 +108,7 @@
       }
     });
 
+    // МУЗЫКА
     function toggleMusic() {
       const audio = document.getElementById('bgMusic');
       const btn = document.getElementById('musicBtn');
@@ -113,5 +116,26 @@
       else { audio.pause(); btn.textContent = '🔇'; }
     }
   </script>
+<script>
+  function checkSecretTime() {
+    const now = new Date();
+    const month = now.getMonth(); // 11 = декабрь
+    const day = now.getDate();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+
+    // Декабрь 31, после 12:30
+    if (month === 11 && day === 31 && (hour > 12 || (hour === 12 && minute >= 30))) {
+      document.getElementById('secretBtn').style.display = 'block';
+    }
+    // Январь и позже — открыто
+    else if (month === 0 || month > 0) {
+      document.getElementById('secretBtn').style.display = 'block';
+    }
+  }
+
+  checkSecretTime();
+  setInterval(checkSecretTime, 60000); // проверяем каждую минуту
+</script>
 </body>
 </html>
