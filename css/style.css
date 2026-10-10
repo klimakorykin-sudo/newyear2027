@@ -570,3 +570,34 @@ body {
 .part.used {
   display: none;
 }
+.slot.invisible {
+  border: none;
+  background: transparent;
+}
+.part.used {
+  display: none;
+}
+
+/* ПАЗЛ — плотная ёлка */
+.puzzle-page .puzzle-board {
+  position: relative;
+  width: 320px;
+  height: 340px;
+  margin: 0 auto 30px;
+  background: transparent;
+  border: none;
+}
+.puzzle-page .slot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.puzzle-page .slot.filled {
+  border: none;
+}
+.puzzle-page .slot.filled svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
