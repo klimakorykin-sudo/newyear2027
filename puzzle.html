@@ -18,38 +18,39 @@
     <p class="puzzle-sub">Перетащи части на свои места</p>
 
     <div class="puzzle-board" id="puzzleBoard">
-      <div class="slot invisible" data-slot="star" style="top: 10px; left: 50%; transform: translateX(-50%);"></div>
-      <div class="slot invisible" data-slot="top" style="top: 60px; left: 50%; transform: translateX(-50%);"></div>
-      <div class="slot invisible" data-slot="mid" style="top: 150px; left: 50%; transform: translateX(-50%);"></div>
-      <div class="slot invisible" data-slot="bot" style="top: 240px; left: 50%; transform: translateX(-50%);"></div>
-      <div class="slot invisible" data-slot="trunk" style="top: 330px; left: 50%; transform: translateX(-50%);"></div>
+      <!-- Слоты плотно, невидимые -->
+      <div class="slot invisible" data-slot="star" style="top: 10px; left: 50%; transform: translateX(-50%); width: 50px; height: 50px;"></div>
+      <div class="slot invisible" data-slot="top" style="top: 60px; left: 50%; transform: translateX(-50%); width: 80px; height: 60px;"></div>
+      <div class="slot invisible" data-slot="mid" style="top: 118px; left: 50%; transform: translateX(-50%); width: 110px; height: 70px;"></div>
+      <div class="slot invisible" data-slot="bot" style="top: 186px; left: 50%; transform: translateX(-50%); width: 140px; height: 80px;"></div>
+      <div class="slot invisible" data-slot="trunk" style="top: 264px; left: 50%; transform: translateX(-50%); width: 40px; height: 50px;"></div>
     </div>
 
     <div class="puzzle-parts" id="puzzleParts">
+      <div class="part" draggable="true" data-part="star">
+        <svg viewBox="0 0 60 60" width="50" height="50">
+          <polygon points="30,5 37,23 56,23 41,35 47,54 30,42 13,54 19,35 4,23 23,23"
+                   fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
+        </svg>
+      </div>
       <div class="part" draggable="true" data-part="top">
-        <svg viewBox="0 0 100 80" width="80" height="64">
-          <polygon points="50,5 95,75 5,75" fill="#0d7a0d" stroke="#d4af37" stroke-width="2"/>
+        <svg viewBox="0 0 80 60" width="80" height="60">
+          <polygon points="40,0 80,60 0,60" fill="#15c015" stroke="#d4af37" stroke-width="2"/>
         </svg>
       </div>
       <div class="part" draggable="true" data-part="mid">
-        <svg viewBox="0 0 120 90" width="96" height="72">
-          <polygon points="60,5 115,85 5,85" fill="#0a5f0a" stroke="#d4af37" stroke-width="2"/>
+        <svg viewBox="0 0 110 70" width="110" height="70">
+          <polygon points="55,0 110,70 0,70" fill="#10a010" stroke="#d4af37" stroke-width="2"/>
         </svg>
       </div>
       <div class="part" draggable="true" data-part="bot">
-        <svg viewBox="0 0 140 100" width="112" height="80">
-          <polygon points="70,5 135,95 5,95" fill="#084a08" stroke="#d4af37" stroke-width="2"/>
+        <svg viewBox="0 0 140 80" width="140" height="80">
+          <polygon points="70,0 140,80 0,80" fill="#0a5f0a" stroke="#d4af37" stroke-width="2"/>
         </svg>
       </div>
       <div class="part" draggable="true" data-part="trunk">
-        <svg viewBox="0 0 40 50" width="32" height="40">
+        <svg viewBox="0 0 40 50" width="40" height="50">
           <rect x="10" y="0" width="20" height="50" fill="#5c3a1a" stroke="#d4af37" stroke-width="2"/>
-        </svg>
-      </div>
-      <div class="part" draggable="true" data-part="star">
-        <svg viewBox="0 0 60 60" width="48" height="48">
-          <polygon points="30,5 37,23 56,23 41,35 47,54 30,42 13,54 19,35 4,23 23,23"
-                   fill="#d4af37" stroke="#ffd700" stroke-width="1"/>
         </svg>
       </div>
     </div>
