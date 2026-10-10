@@ -563,3 +563,10 @@ body {
   0%, 100% { transform: rotate(-5deg) scale(1); }
   50% { transform: rotate(5deg) scale(1.05); }
 }
+.slot.invisible {
+  border: none;
+  background: transparent;
+}
+.part.used {
+  display: none;
+}
