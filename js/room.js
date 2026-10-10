@@ -1,4 +1,4 @@
-﻿const roomTime = document.getElementById('roomTime');
+const roomTime = document.getElementById('roomTime');
 const poses = {
   sleep: document.getElementById('pose-sleep'),
   sit: document.getElementById('pose-sit'),
@@ -10,6 +10,8 @@ const lampGlow = document.getElementById('lampGlow');
 const lampLight = document.getElementById('lampLight');
 const windowNight = document.getElementById('windowNight');
 const windowDay = document.getElementById('windowDay');
+const catZzz = document.getElementById('catZzz');
+const crookshanks = document.getElementById('crookshanks');
 
 const compliments = [
   "Ты — свет этого Нового года.",
@@ -38,6 +40,17 @@ function showPose(name) {
   if (poses[name]) poses[name].style.display = 'block';
 }
 
+// Кот двигается по комнате
+let catX = 650;
+let catDir = 1;
+function moveCat() {
+  catX += catDir * 0.3;
+  if (catX > 720) catDir = -1;
+  if (catX < 560) catDir = 1;
+  crookshanks.setAttribute('transform', `translate(${catX - 650}, 0)`);
+}
+setInterval(moveCat, 50);
+
 function updateRoom() {
   const now = new Date();
   const h = now.getHours();
@@ -52,6 +65,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '1');
     windowDay.setAttribute('opacity', '0');
     document.getElementById('wall').setAttribute('fill', '#1a1028');
+    catZzz.style.display = 'block';
   } else if (h >= 7 && h < 10) {
     showPose('walk');
     lampGlow.setAttribute('opacity', '0.08');
@@ -59,6 +73,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '0');
     windowDay.setAttribute('opacity', '1');
     document.getElementById('wall').setAttribute('fill', '#3a2a4a');
+    catZzz.style.display = 'none';
   } else if (h >= 10 && h < 13) {
     showPose('stand');
     lampGlow.setAttribute('opacity', '0.05');
@@ -66,6 +81,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '0');
     windowDay.setAttribute('opacity', '1');
     document.getElementById('wall').setAttribute('fill', '#4a3a5a');
+    catZzz.style.display = 'none';
   } else if (h >= 13 && h < 14) {
     showPose('sit');
     lampGlow.setAttribute('opacity', '0.05');
@@ -73,6 +89,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '0');
     windowDay.setAttribute('opacity', '1');
     document.getElementById('wall').setAttribute('fill', '#4a3a5a');
+    catZzz.style.display = 'none';
   } else if (h >= 14 && h < 18) {
     showPose('walk');
     lampGlow.setAttribute('opacity', '0.05');
@@ -80,6 +97,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '0');
     windowDay.setAttribute('opacity', '1');
     document.getElementById('wall').setAttribute('fill', '#4a3a5a');
+    catZzz.style.display = 'none';
   } else if (h >= 18 && h < 22) {
     showPose('stand');
     lampGlow.setAttribute('opacity', '0.12');
@@ -87,6 +105,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '0.7');
     windowDay.setAttribute('opacity', '0');
     document.getElementById('wall').setAttribute('fill', '#3a2a4a');
+    catZzz.style.display = 'none';
   } else {
     showPose('sleep');
     lampGlow.setAttribute('opacity', '0.05');
@@ -94,6 +113,7 @@ function updateRoom() {
     windowNight.setAttribute('opacity', '1');
     windowDay.setAttribute('opacity', '0');
     document.getElementById('wall').setAttribute('fill', '#2a1a3a');
+    catZzz.style.display = 'block';
   }
 
   const garland = document.querySelectorAll('#treeGarland circle, #wallGarland circle');
