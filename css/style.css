@@ -977,3 +977,42 @@ body {
     font-size: 0.85rem;
   }
 }
+.puzzle-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.puzzle-btn {
+  padding: 10px 22px;
+  background: rgba(10,10,30,0.7);
+  border: 2px solid rgba(212,175,55,0.4);
+  color: #d4af37;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+.puzzle-btn:hover { background: rgba(212,175,55,0.2); }
+.puzzle-btn.active {
+  background: #d4af37;
+  color: #0a0a1a;
+  border-color: #d4af37;
+}
+
+.puzzle-board {
+  overflow: visible;
+}
+.snowman-slot.filled svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  overflow: visible;
+}
+
+@media (max-width: 600px) {
+  .puzzle-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
