@@ -13,7 +13,6 @@ function selectPuzzle(type, btn) {
   document.getElementById('puzzleTitle').textContent =
     type === 'tree' ? '🧩 Собери ёлку' : '🧩 Собери снеговика';
 
-  // Показываем нужные части и слоты
   document.querySelectorAll('.tree-part').forEach(p => p.style.display = type === 'tree' ? 'block' : 'none');
   document.querySelectorAll('.snowman-part').forEach(p => p.style.display = type === 'snowman' ? 'block' : 'none');
 
@@ -32,24 +31,21 @@ function resetPuzzle() {
   correctCount = 0;
   document.getElementById('puzzleDone').style.display = 'none';
 
-  // Очищаем слоты
   document.querySelectorAll('.slot').forEach(s => {
     s.innerHTML = '';
     s.classList.remove('filled');
     s.classList.add('invisible');
   });
 
-  // Возвращаем части
   document.querySelectorAll('.part').forEach(p => {
     p.classList.remove('used');
     p.setAttribute('draggable', 'true');
     p.style.outline = 'none';
   });
 
-  totalSlots = currentType === 'tree' ? 5 : 5;
+  totalSlots = 5;
 }
 
-// Drag & drop
 document.querySelectorAll('.part').forEach(part => {
   part.addEventListener('dragstart', () => {
     draggedPart = part;
@@ -69,7 +65,6 @@ document.querySelectorAll('.slot').forEach(slot => {
   });
 });
 
-// Клик (телефон)
 document.querySelectorAll('.part').forEach(part => {
   part.addEventListener('click', () => {
     if (part.classList.contains('used')) return;
@@ -109,5 +104,4 @@ function tryPlace(part, slot) {
   }
 }
 
-// Инициализация
 selectPuzzle('tree', document.querySelector('.puzzle-btn.active'));
