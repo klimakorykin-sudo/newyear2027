@@ -1,4 +1,7 @@
 const tracks = [
+  // Русские новогодние
+  { title: 'Новогодняя', artist: 'Дискотека Авария', src: 'assets/music/diskoteka-avaria.mp3' },
+
   // Классика
   { title: 'Last Christmas', artist: 'Wham!', src: 'assets/music/last-christmas.mp3' },
   { title: 'Jingle Bell Rock', artist: 'Bobby Helms', src: 'assets/music/jingle-bell-rock.mp3' },
@@ -22,7 +25,14 @@ const tracks = [
   { title: 'Mistletoe', artist: 'Justin Bieber', src: 'assets/music/mistletoe.mp3' },
   { title: 'Underneath the Tree', artist: 'Kelly Clarkson', src: 'assets/music/underneath-the-tree.mp3' },
   { title: 'Santa Tell Me', artist: 'Ariana Grande', src: 'assets/music/santa-tell-me.mp3' },
-  { title: 'It\'s Beginning to Look a Lot Like Christmas', artist: 'Michael Bublé', src: 'assets/music/beginning-to-look.mp3' }
+  { title: 'It\'s Beginning to Look a Lot Like Christmas', artist: 'Michael Bublé', src: 'assets/music/beginning-to-look.mp3' },
+
+  // Новые 5
+  { title: 'Sleigh Ride', artist: 'Arthur Fiedler', src: 'assets/music/sleigh-ride.mp3' },
+  { title: 'Jingle Bells', artist: 'Frank Sinatra', src: 'assets/music/jingle-bells.mp3' },
+  { title: 'It\'s the Most Wonderful Time of the Year', artist: 'Andy Williams', src: 'assets/music/most-wonderful-time.mp3' },
+  { title: 'Rudolph the Red-Nosed Reindeer', artist: 'Gene Autry', src: 'assets/music/rudolph.mp3' },
+  { title: 'Santa Claus Is Comin\' to Town', artist: 'Bruce Springsteen', src: 'assets/music/santa-claus.mp3' }
 ];
 
 let currentIndex = 0;
