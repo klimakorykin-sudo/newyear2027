@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📸 Новогодняя фотозона</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="photo-page">
+
+  <div class="bg bg-dark"></div>
+
+  <a href="index.html" class="back-btn">← Назад</a>
+
+  <div class="photo-wrap">
+    <h1>📸 Новогодняя фотозона</h1>
+    <p class="photo-sub">Выбери рамку и загрузи фото</p>
+
+    <div class="frame-selector">
+      <button class="frame-btn active" data-frame="tree" onclick="selectFrame('tree', this)">
+        🎄 Ёлка
+      </button>
+      <button class="frame-btn" data-frame="snowman" onclick="selectFrame('snowman', this)">
+        ⛄ Снеговик
+      </button>
+      <button class="frame-btn" data-frame="winter" onclick="selectFrame('winter', this)">
+        ❄️ Зимняя
+      </button>
+    </div>
+
+    <div class="photo-preview" id="photoPreview">
+      <div class="photo-frame" id="photoFrame">
+        <!-- Сюда вставится фото -->
+        <div class="photo-placeholder" id="photoPlaceholder">
+          <div class="placeholder-icon">📷</div>
+          <div class="placeholder-text">Загрузи фото</div>
+        </div>
+        <img class="photo-img" id="photoImg" style="display:none;">
+      </div>
+
+      <!-- SVG-рамки -->
+      <svg class="frame-svg" id="frameSvg" viewBox="0 0 400 500">
+        <!-- Рамка ЁЛКА -->
+        <g id="frame-tree">
+          <!-- Углы — ёлки -->
+          <polygon points="0,0 60,0 0,60" fill="#0a5f0a"/>
+          <polygon points="400,0 340,0 400,60" fill="#0a5f0a"/>
+          <polygon points="0,500 60,500 0,440" fill="#0a5f0a"/>
+          <polygon points="400,500 340,500 400,440" fill="#0a5f0a"/>
+          <!-- Звёзды на углах -->
+          <polygon points="30,20 35,32 48,32 38,40 42,52 30,44 18,52 22,40 12,32 25,32" fill="#d4af37"/>
+          <polygon points="370,20 375,32 388,32 378,40 382,52 370,44 358,52 362,40 352,32 365,32" fill="#d4af37"/>
+          <polygon points="30,480 35,468 48,468 38,460 42,448 30,456 18,448 22,460 12,468 25,468" fill="#d4af37"/>
+          <polygon points="370,480 375,468 388,468 378,460 382,448 370,456 358,448 362,460 352,468 365,468" fill="#d4af37"/>
+          <!-- Шарики -->
+          <circle cx="200" cy="15" r="8" fill="#ff3333"/>
+          <circle cx="200" cy="485" r="8" fill="#ff3333"/>
+          <circle cx="15" cy="250" r="8" fill="#3333ff"/>
+          <circle cx="385" cy="250" r="8" fill="#3333ff"/>
+          <!-- Рамка -->
+          <rect x="5" y="5" width="390" height="490" fill="none" stroke="#d4af37" stroke-width="4" rx="10"/>
+        </g>
+
+        <!-- Рамка СНЕГОВИК -->
+        <g id="frame-snowman" style="display:none;">
+          <rect x="5" y="5" width="390" height="490" fill="none" stroke="#fff" stroke-width="4" rx="10"/>
+          <!-- Снеговики на углах -->
+          <g transform="translate(30,30)">
+            <circle cx="0" cy="0" r="12" fill="#fff"/>
+            <circle cx="0" cy="-14" r="9" fill="#fff"/>
+            <circle cx="0" cy="-24" r="6" fill="#fff"/>
+            <circle cx="-3" cy="-25" r="1.2" fill="#000"/>
+            <circle cx="3" cy="-25" r="1.2" fill="#000"/>
+            <polygon points="0,-23 8,-22 0,-21" fill="#ff6600"/>
+            <rect x="-8" y="-16" width="16" height="3" fill="#c02020" rx="1"/>
+          </g>
+          <g transform="translate(370,30)">
+            <circle cx="0" cy="0" r="12" fill="#fff"/>
+            <circle cx="0" cy="-14" r="9" fill="#fff"/>
+            <circle cx="0" cy="-24" r="6" fill="#fff"/>
+            <circle cx="-3" cy="-25" r="1.2" fill="#000"/>
+            <circle cx="3" cy="-25" r="1.2" fill="#000"/>
+            <polygon points="0,-23 8,-22 0,-21" fill="#ff6600"/>
+            <rect x="-8" y="-16" width="16" height="3" fill="#c02020" rx="1"/>
+          </g>
+          <!-- Снежинки -->
+          <text x="200" y="20" font-size="16" fill="#fff" text-anchor="middle">❄</text>
+          <text x="200" y="495" font-size="16" fill="#fff" text-anchor="middle">❄</text>
+          <text x="20" y="250" font-size="16" fill="#fff">❄</text>
+          <text x="375" y="250" font-size="16" fill="#fff">❄</text>
+        </g>
+
+        <!-- Рамка ЗИМНЯЯ -->
+        <g id="frame-winter" style="display:none;">
+          <rect x="5" y="5" width="390" height="490" fill="none" stroke="#6a8fc5" stroke-width="4" rx="10"/>
+          <!-- Снежинки на углах -->
+          <g transform="translate(30,30)" fill="#fff">
+            <line x1="-15" y1="0" x2="15" y2="0" stroke="#fff" stroke-width="2"/>
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="-10" x2="10" y2="10" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="10" x2="10" y2="-10" stroke="#fff" stroke-width="2"/>
+          </g>
+          <g transform="translate(370,30)" fill="#fff">
+            <line x1="-15" y1="0" x2="15" y2="0" stroke="#fff" stroke-width="2"/>
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="-10" x2="10" y2="10" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="10" x2="10" y2="-10" stroke="#fff" stroke-width="2"/>
+          </g>
+          <g transform="translate(30,470)" fill="#fff">
+            <line x1="-15" y1="0" x2="15" y2="0" stroke="#fff" stroke-width="2"/>
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="-10" x2="10" y2="10" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="10" x2="10" y2="-10" stroke="#fff" stroke-width="2"/>
+          </g>
+          <g transform="translate(370,470)" fill="#fff">
+            <line x1="-15" y1="0" x2="15" y2="0" stroke="#fff" stroke-width="2"/>
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="-10" x2="10" y2="10" stroke="#fff" stroke-width="2"/>
+            <line x1="-10" y1="10" x2="10" y2="-10" stroke="#fff" stroke-width="2"/>
+          </g>
+          <!-- Звёзды -->
+          <circle cx="200" cy="15" r="3" fill="#fff"/>
+          <circle cx="200" cy="485" r="3" fill="#fff"/>
+          <circle cx="15" cy="250" r="3" fill="#fff"/>
+          <circle cx="385" cy="250" r="3" fill="#fff"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="photo-controls">
+      <input type="file" id="photoInput" accept="image/*" style="display:none;">
+      <button class="upload-btn" onclick="document.getElementById('photoInput').click()">
+        📷 Выбрать фото
+      </button>
+      <button class="download-btn" id="downloadBtn" onclick="downloadPhoto()" disabled>
+        💾 Скачать
+      </button>
+    </div>
+
+    <p class="photo-hint">Фото остаётся только у тебя — никуда не отправляется</p>
+  </div>
+
+  <script src="js/photo.js"></script>
+</body>
+</html>
