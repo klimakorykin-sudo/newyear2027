@@ -1,11 +1,56 @@
-const parts = document.querySelectorAll('.part');
-const slots = document.querySelectorAll('.slot');
-const puzzleDone = document.getElementById('puzzleDone');
-
+let currentType = 'tree';
 let draggedPart = null;
+let selectedPart = null;
 let correctCount = 0;
+let totalSlots = 5;
 
-parts.forEach(part => {
+function selectPuzzle(type, btn) {
+  currentType = type;
+
+  document.querySelectorAll('.puzzle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.getElementById('puzzleTitle').textContent =
+    type === 'tree' ? '🧩 Собери ёлку' : '🧩 Собери снеговика';
+
+  // Показываем нужные части и слоты
+  document.querySelectorAll('.tree-part').forEach(p => p.style.display = type === 'tree' ? 'block' : 'none');
+  document.querySelectorAll('.snowman-part').forEach(p => p.style.display = type === 'snowman' ? 'block' : 'none');
+
+  document.querySelectorAll('.slot').forEach(s => {
+    if (s.classList.contains('snowman-slot')) {
+      s.style.display = (type === 'snowman' && !s.classList.contains('filled')) ? 'flex' : 'none';
+    } else {
+      s.style.display = (type === 'tree' && !s.classList.contains('filled')) ? 'flex' : 'none';
+    }
+  });
+
+  resetPuzzle();
+}
+
+function resetPuzzle() {
+  correctCount = 0;
+  document.getElementById('puzzleDone').style.display = 'none';
+
+  // Очищаем слоты
+  document.querySelectorAll('.slot').forEach(s => {
+    s.innerHTML = '';
+    s.classList.remove('filled');
+    s.classList.add('invisible');
+  });
+
+  // Возвращаем части
+  document.querySelectorAll('.part').forEach(p => {
+    p.classList.remove('used');
+    p.setAttribute('draggable', 'true');
+    p.style.outline = 'none';
+  });
+
+  totalSlots = currentType === 'tree' ? 5 : 5;
+}
+
+// Drag & drop
+document.querySelectorAll('.part').forEach(part => {
   part.addEventListener('dragstart', () => {
     draggedPart = part;
     part.classList.add('dragging');
@@ -15,36 +60,17 @@ parts.forEach(part => {
   });
 });
 
-slots.forEach(slot => {
+document.querySelectorAll('.slot').forEach(slot => {
   slot.addEventListener('dragover', (e) => e.preventDefault());
   slot.addEventListener('drop', (e) => {
     e.preventDefault();
     if (!draggedPart) return;
-    const partType = draggedPart.dataset.part;
-    const slotType = slot.dataset.slot;
-
-    if (partType === slotType && !slot.classList.contains('filled')) {
-      slot.innerHTML = draggedPart.innerHTML;
-      slot.classList.add('filled');
-      slot.classList.remove('invisible');
-      draggedPart.classList.add('used');
-      draggedPart.setAttribute('draggable', 'false');
-      correctCount++;
-      draggedPart = null;
-
-      if (correctCount === slots.length) {
-        puzzleDone.style.display = 'block';
-        const confetti = new JSConfetti();
-        confetti.addConfetti({ emojis: ['🎉','🎄','⭐'], confettiNumber: 150 });
-      }
-    }
+    tryPlace(draggedPart, slot);
   });
 });
 
-// Мобильные — тап
-let selectedPart = null;
-
-parts.forEach(part => {
+// Клик (телефон)
+document.querySelectorAll('.part').forEach(part => {
   part.addEventListener('click', () => {
     if (part.classList.contains('used')) return;
     if (selectedPart) selectedPart.style.outline = 'none';
@@ -53,26 +79,35 @@ parts.forEach(part => {
   });
 });
 
-slots.forEach(slot => {
+document.querySelectorAll('.slot').forEach(slot => {
   slot.addEventListener('click', () => {
     if (!selectedPart) return;
-    const partType = selectedPart.dataset.part;
-    const slotType = slot.dataset.slot;
-
-    if (partType === slotType && !slot.classList.contains('filled')) {
-      slot.innerHTML = selectedPart.innerHTML;
-      slot.classList.add('filled');
-      slot.classList.remove('invisible');
-      selectedPart.classList.add('used');
-      selectedPart.style.outline = 'none';
-      correctCount++;
-      selectedPart = null;
-
-      if (correctCount === slots.length) {
-        puzzleDone.style.display = 'block';
-        const confetti = new JSConfetti();
-        confetti.addConfetti({ emojis: ['🎉','🎄','⭐'], confettiNumber: 150 });
-      }
-    }
+    tryPlace(selectedPart, slot);
   });
 });
+
+function tryPlace(part, slot) {
+  const partType = part.dataset.part;
+  const slotType = slot.dataset.slot;
+
+  if (partType === slotType && !slot.classList.contains('filled')) {
+    slot.innerHTML = part.innerHTML;
+    slot.classList.add('filled');
+    slot.classList.remove('invisible');
+    part.classList.add('used');
+    part.setAttribute('draggable', 'false');
+    part.style.outline = 'none';
+    correctCount++;
+    draggedPart = null;
+    selectedPart = null;
+
+    if (correctCount === totalSlots) {
+      document.getElementById('puzzleDone').style.display = 'block';
+      const confetti = new JSConfetti();
+      confetti.addConfetti({ emojis: ['🎉','🎄','⛄','⭐'], confettiNumber: 150 });
+    }
+  }
+}
+
+// Инициализация
+selectPuzzle('tree', document.querySelector('.puzzle-btn.active'));
