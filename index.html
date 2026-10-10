@@ -115,27 +115,32 @@
       if (audio.paused) { audio.play(); btn.textContent = '🔊'; }
       else { audio.pause(); btn.textContent = '🔇'; }
     }
+
+    // СЕКРЕТНЫЙ ПОДАРОК
+    function checkSecretTime() {
+      const now = new Date();
+      const month = now.getMonth(); // 11 = декабрь
+      const day = now.getDate();
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      const btn = document.getElementById('secretBtn');
+
+      // Декабрь 31, после 12:30
+      if (month === 11 && day === 31 && (hour > 12 || (hour === 12 && minute >= 30))) {
+        btn.style.display = 'block';
+      }
+      // Январь
+      else if (month === 0) {
+        btn.style.display = 'block';
+      }
+      // Остальное — скрыто
+      else {
+        btn.style.display = 'none';
+      }
+    }
+
+    checkSecretTime();
+    setInterval(checkSecretTime, 60000);
   </script>
-<script>
-  function checkSecretTime() {
-    const now = new Date();
-    const month = now.getMonth(); // 11 = декабрь
-    const day = now.getDate();
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-
-    // Декабрь 31, после 12:30
-    if (month === 11 && day === 31 && (hour > 12 || (hour === 12 && minute >= 30))) {
-      document.getElementById('secretBtn').style.display = 'block';
-    }
-    // Январь и позже — открыто
-    else if (month === 0 || month > 0) {
-      document.getElementById('secretBtn').style.display = 'block';
-    }
-  }
-
-  checkSecretTime();
-  setInterval(checkSecretTime, 60000); // проверяем каждую минуту
-</script>
 </body>
 </html>
