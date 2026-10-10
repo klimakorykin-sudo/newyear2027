@@ -1,4 +1,4 @@
-﻿function createSanta() {
+function createSanta() {
   const container = document.getElementById('santa-container');
   if (!container) return;
 
@@ -10,8 +10,9 @@
   };
   container.appendChild(santa);
 
-  const startX = window.innerWidth + 200;
-  const endX = -400;
+  // Летит СЛЕВА НАПРАВО
+  const startX = -300;
+  const endX = window.innerWidth + 300;
   const startY = 50 + Math.random() * (window.innerHeight * 0.4);
   const duration = 14000 + Math.random() * 6000;
 
@@ -20,7 +21,7 @@
 
   const anim = santa.animate([
     { transform: 'translateX(0) translateY(0)' },
-    { transform: `translateX(${endX - startX}px) translateY(40px)` }
+    { transform: `translateX(${endX - startX}px) translateY(${(Math.random() - 0.5) * 80}px)` }
   ], { duration, easing: 'linear' });
 
   anim.onfinish = () => santa.remove();
