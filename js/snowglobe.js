@@ -13,26 +13,26 @@ resize();
 window.addEventListener('resize', resize);
 
 const flakes = [];
-const flakeCount = 80;
+const flakeCount = 60;
 
 function globeCircle() {
   return {
     cx: width * 0.5,
     cy: height * 0.46,
-    r: width * 0.44
+    r: width * 0.42
   };
 }
 
 for (let i = 0; i < flakeCount; i++) {
   const { cx, cy, r } = globeCircle();
   const angle = Math.random() * Math.PI * 2;
-  const dist = Math.random() * r * 0.9;
+  const dist = Math.random() * r * 0.85;
   flakes.push({
     x: cx + Math.cos(angle) * dist,
     y: cy + Math.sin(angle) * dist,
-    vx: (Math.random() - 0.5) * 0.3,
+    vx: (Math.random() - 0.5) * 0.4,
     vy: Math.random() * 0.3 + 0.1,
-    size: Math.random() * 2 + 1,
+    size: Math.random() * 2.5 + 1.5,
     opacity: Math.random() * 0.7 + 0.3
   });
 }
@@ -42,7 +42,7 @@ function animate() {
 
   const { cx, cy, r } = globeCircle();
 
-  // Расталкивание снежинок
+  // СИЛЬНОЕ расталкивание
   for (let i = 0; i < flakes.length; i++) {
     for (let j = i + 1; j < flakes.length; j++) {
       const a = flakes[i];
@@ -50,49 +50,50 @@ function animate() {
       const dx = b.x - a.x;
       const dy = b.y - a.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      const minDist = a.size + b.size + 2;
+      const minDist = a.size + b.size + 4;
 
-      if (dist < minDist && dist > 0) {
+      if (dist < minDist && dist > 0.1) {
         const angle = Math.atan2(dy, dx);
-        const force = (minDist - dist) * 0.05;
-        a.x -= Math.cos(angle) * force;
-        a.y -= Math.sin(angle) * force;
-        b.x += Math.cos(angle) * force;
-        b.y += Math.sin(angle) * force;
+        const overlap = minDist - dist;
+        const pushX = Math.cos(angle) * overlap * 0.5;
+        const pushY = Math.sin(angle) * overlap * 0.5;
 
-        // Обмен импульсами
+        a.x -= pushX;
+        a.y -= pushY;
+        b.x += pushX;
+        b.y += pushY;
+
+        // Обмен скоростями
         const tempVx = a.vx;
         const tempVy = a.vy;
-        a.vx = b.vx * 0.5;
-        a.vy = b.vy * 0.5;
-        b.vx = tempVx * 0.5;
-        b.vy = tempVy * 0.5;
+        a.vx = b.vx * 0.6;
+        a.vy = b.vy * 0.6;
+        b.vx = tempVx * 0.6;
+        b.vy = tempVy * 0.6;
       }
     }
   }
 
   flakes.forEach(f => {
-    f.vy += 0.015;
+    f.vy += 0.01;
     f.x += f.vx;
     f.y += f.vy;
-    f.vx *= 0.99;
+    f.vx *= 0.98;
 
-    // Ограничение внутри шара
     const dx = f.x - cx;
     const dy = f.y - cy;
     const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist > r - 8) {
+    if (dist > r - 10) {
       const angle = Math.atan2(dy, dx);
-      f.x = cx + Math.cos(angle) * (r - 8);
-      f.y = cy + Math.sin(angle) * (r - 8);
-      f.vx *= -0.4;
-      f.vy *= -0.4;
+      f.x = cx + Math.cos(angle) * (r - 10);
+      f.y = cy + Math.sin(angle) * (r - 10);
+      f.vx *= -0.3;
+      f.vy *= -0.3;
     }
 
-    // Если снежинка остановилась — поднимаем
-    if (Math.abs(f.vy) < 0.05 && f.y > cy + r * 0.5) {
-      f.vy = -Math.random() * 0.5 - 0.2;
-      f.vx = (Math.random() - 0.5) * 0.5;
+    if (Math.abs(f.vy) < 0.03 && f.y > cy + r * 0.4) {
+      f.vy = -Math.random() * 0.6 - 0.3;
+      f.vx = (Math.random() - 0.5) * 0.6;
     }
 
     ctx.beginPath();
@@ -112,8 +113,8 @@ function shake(x, y) {
   const dx = x - lastX;
   const dy = y - lastY;
   flakes.forEach(f => {
-    f.vx += dx * 0.4;
-    f.vy += dy * 0.4;
+    f.vx += dx * 0.5;
+    f.vy += dy * 0.5;
   });
   lastX = x;
   lastY = y;
