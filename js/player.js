@@ -16,13 +16,15 @@ const tracks = [
   { title: 'Happy New Year', artist: 'ABBA', src: 'assets/music/happy-new-year-abba.mp3' },
   { title: 'Auld Lang Syne', artist: 'Mariah Carey', src: 'assets/music/auld-lang-syne-mariah.mp3' },
   { title: 'Do They Know It\'s Christmas?', artist: 'Band Aid', src: 'assets/music/do-they-know-christmas.mp3' },
-  { title: 'Wonderful Christmastime', artist: 'Paul McCartney', src: 'assets/music/wonderful-christmastime.mp3' },
-  { title: 'Step Into Christmas', artist: 'Elton John', src: 'assets/music/step-into-christmas.mp3' },
-  { title: 'Christmas (Baby Please Come Home)', artist: 'Mariah Carey', src: 'assets/music/baby-please-come-home.mp3' },
-  { title: 'Mary\'s Boy Child', artist: 'Boney M.', src: 'assets/music/marys-boy-child.mp3' },
-  { title: 'Feliz Navidad', artist: 'José Feliciano', src: 'assets/music/feliz-navidad.mp3' },
-  { title: 'Grandma Got Run Over by a Reindeer', artist: 'Elmo & Patsy', src: 'assets/music/grandma-reindeer.mp3' },
-  { title: 'Little Drummer Boy', artist: 'Bing Crosby & David Bowie', src: 'assets/music/little-drummer-boy.mp3' }
+
+  // ABBA + Русские новогодние
+  { title: 'Little Things', artist: 'ABBA', src: 'assets/music/little-things-abba.mp3' },
+  { title: 'Пять минут', artist: 'Людмила Гурченко', src: 'assets/music/pyat-minut.mp3' },
+  { title: 'Звенит январская вьюга', artist: 'Нина Бродская', src: 'assets/music/zvenit-yanvarskaya-vyuga.mp3' },
+  { title: 'Песня о снежинке', artist: 'Ольга Рождественская', src: 'assets/music/pesnya-o-snezhinke.mp3' },
+  { title: 'Этот Новый год', artist: 'Майя Кристалинская', src: 'assets/music/etot-novyy-god.mp3' },
+  { title: 'Кабы не было зимы', artist: 'Валентина Толкунова', src: 'assets/music/kaby-ne-bylo-zimy.mp3' },
+  { title: 'Расскажи, Снегурочка', artist: 'Клара Румянова', src: 'assets/music/rasskazi-snegurochka.mp3' }
 ];
 
 let currentIndex = 0;
