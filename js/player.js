@@ -10,7 +10,19 @@ const tracks = [
   { title: 'All I Want for Christmas', artist: 'Mariah Carey', src: 'assets/music/all-i-want.mp3' },
   { title: 'Santa Tell Me', artist: 'Ariana Grande', src: 'assets/music/santa-tell-me.mp3' },
   { title: 'Underneath the Tree', artist: 'Kelly Clarkson', src: 'assets/music/underneath-the-tree.mp3' },
-  { title: 'It\'s Beginning to Look a Lot Like Christmas', artist: 'Michael Bublé', src: 'assets/music/beginning-to-look.mp3' }
+  { title: 'It\'s Beginning to Look a Lot Like Christmas', artist: 'Michael Bublé', src: 'assets/music/beginning-to-look.mp3' },
+
+  // День 1
+  { title: 'Happy New Year', artist: 'ABBA', src: 'assets/music/happy-new-year-abba.mp3' },
+  { title: 'Auld Lang Syne', artist: 'Mariah Carey', src: 'assets/music/auld-lang-syne-mariah.mp3' },
+  { title: 'Do They Know It\'s Christmas?', artist: 'Band Aid', src: 'assets/music/do-they-know-christmas.mp3' },
+  { title: 'Wonderful Christmastime', artist: 'Paul McCartney', src: 'assets/music/wonderful-christmastime.mp3' },
+  { title: 'Step Into Christmas', artist: 'Elton John', src: 'assets/music/step-into-christmas.mp3' },
+  { title: 'Christmas (Baby Please Come Home)', artist: 'Mariah Carey', src: 'assets/music/baby-please-come-home.mp3' },
+  { title: 'Mary\'s Boy Child', artist: 'Boney M.', src: 'assets/music/marys-boy-child.mp3' },
+  { title: 'Feliz Navidad', artist: 'José Feliciano', src: 'assets/music/feliz-navidad.mp3' },
+  { title: 'Grandma Got Run Over by a Reindeer', artist: 'Elmo & Patsy', src: 'assets/music/grandma-reindeer.mp3' },
+  { title: 'Little Drummer Boy', artist: 'Bing Crosby & David Bowie', src: 'assets/music/little-drummer-boy.mp3' }
 ];
 
 let currentIndex = 0;
