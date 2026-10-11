@@ -32,7 +32,8 @@ const tracks = [
   // День 2 (новые)
   { title: 'Синий иней', artist: 'ВИА «Поющие гитары»', src: 'assets/music/siniy-iney.mp3' },
   { title: 'Белая зима', artist: 'София Ротару', src: 'assets/music/belaya-zima-rotaru.mp3' },
-  { title: 'В лесу родилась ёлочка', artist: 'Классика', src: 'assets/music/v-lesu-rodilas-elochka.mp3' }
+  { title: 'В лесу родилась ёлочка', artist: 'Александр Хвыля', src: 'assets/music/v-lesu-rodilas-elochka.mp3' },
+  { title: 'Увезу тебя я в тундру', artist: 'Кола Бельды', src: 'assets/music/uvesy-tebia-ia-v-tundry.mp3' }
 ];
 
 let currentIndex = 0;
