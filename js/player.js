@@ -16,8 +16,6 @@ const tracks = [
   { title: 'Happy New Year', artist: 'ABBA', src: 'assets/music/happy-new-year-abba.mp3' },
   { title: 'Auld Lang Syne', artist: 'Mariah Carey', src: 'assets/music/auld-lang-syne-mariah.mp3' },
   { title: 'Do They Know It\'s Christmas?', artist: 'Band Aid', src: 'assets/music/do-they-know-christmas.mp3' },
-
-  // ABBA + Русские новогодние
   { title: 'Little Things', artist: 'ABBA', src: 'assets/music/little-things-abba.mp3' },
   { title: 'Пять минут', artist: 'Людмила Гурченко', src: 'assets/music/pyat-minut.mp3' },
   { title: 'Звенит январская вьюга', artist: 'Нина Бродская', src: 'assets/music/zvenit-yanvarskaya-vyuga.mp3' },
@@ -25,15 +23,17 @@ const tracks = [
   { title: 'Этот Новый год', artist: 'Майя Кристалинская', src: 'assets/music/etot-novyy-god.mp3' },
   { title: 'Кабы не было зимы', artist: 'Валентина Толкунова', src: 'assets/music/kaby-ne-bylo-zimy.mp3' },
   { title: 'Расскажи, Снегурочка', artist: 'Клара Румянова', src: 'assets/music/rasskazi-snegurochka.mp3' },
-
-  // Новогодние игрушки
   { title: 'Новогодние игрушки', artist: 'Самоцветы', src: 'assets/music/novogodnie-igrushki.mp3' },
 
-  // День 2 (новые)
+  // День 2
   { title: 'Синий иней', artist: 'ВИА «Поющие гитары»', src: 'assets/music/siniy-iney.mp3' },
   { title: 'Белая зима', artist: 'София Ротару', src: 'assets/music/belaya-zima-rotaru.mp3' },
   { title: 'В лесу родилась ёлочка', artist: 'Александр Хвыля', src: 'assets/music/v-lesu-rodilas-elochka.mp3' },
-  { title: 'Увезу тебя я в тундру', artist: 'Кола Бельды', src: 'assets/music/uvesy-tebia-ia-v-tundry.mp3' }
+  { title: 'Увезу тебя я в тундру', artist: 'Кола Бельды', src: 'assets/music/uvesy-tebia-ia-v-tundry.mp3' },
+
+  // День 3
+  { title: 'Три белых коня', artist: 'Лариса Долина', src: 'assets/music/tri-belyh-konya.mp3' },
+  { title: 'Зимний сон', artist: 'Алсу', src: 'assets/music/zimniy-son-alsu.mp3' }
 ];
 
 let currentIndex = 0;
