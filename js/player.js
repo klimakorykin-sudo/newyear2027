@@ -24,7 +24,10 @@ const tracks = [
   { title: 'Песня о снежинке', artist: 'Ольга Рождественская', src: 'assets/music/pesnya-o-snezhinke.mp3' },
   { title: 'Этот Новый год', artist: 'Майя Кристалинская', src: 'assets/music/etot-novyy-god.mp3' },
   { title: 'Кабы не было зимы', artist: 'Валентина Толкунова', src: 'assets/music/kaby-ne-bylo-zimy.mp3' },
-  { title: 'Расскажи, Снегурочка', artist: 'Клара Румянова', src: 'assets/music/rasskazi-snegurochka.mp3' }
+  { title: 'Расскажи, Снегурочка', artist: 'Клара Румянова', src: 'assets/music/rasskazi-snegurochka.mp3' },
+
+  // Новогодние игрушки
+  { title: 'Новогодние игрушки', artist: 'Самоцветы', src: 'assets/music/novogodnie-igrushki.mp3' }
 ];
 
 let currentIndex = 0;
